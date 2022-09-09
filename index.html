@@ -1,0 +1,63 @@
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Red Card</title>
+        <style>
+            body {
+                margin: 0;
+                padding: 0;
+                overflow: hidden;
+                font-family: 'Tahoma', sans-serif;
+            }
+
+            .half {
+                width: 100vw;
+                height: 50vh;
+                line-height: 50vh;
+                font-size: 42px;
+                text-align: center;
+            }
+
+            .full {
+                position: fixed;
+                top: 0;
+                width: 100vw;
+                height: 100vh;
+                display: none;
+            }
+
+            .red {
+                background-color: red;
+                color: darkred;
+            }
+
+            .yellow {
+                background-color: yellow;
+                color: darkkhaki;
+            }
+        </style>
+    </head>  
+    <body>
+        <div id="red-half" class="red half">Tap for red</div>
+        <div id="yellow-half" class="yellow half"> Tap for yellow</div>
+        <div id="red-full" class="red full"></div>
+        <div id="yellow-full" class="yellow full"></div>
+    </body>
+    <script>
+        const redFull = document.getElementById("red-full");
+        const yellowFull = document.getElementById("yellow-full");
+
+        document.getElementById("red-half").addEventListener('click', () => redFull.style.display = 'block');
+        document.getElementById("yellow-half").addEventListener('click', () => yellowFull.style.display = 'block');
+    
+        redFull.addEventListener('click', () => {
+            redFull.style.display = 'none';
+            yellowFull.style.display = 'block';
+        });
+    
+        yellowFull.addEventListener('click', () => {
+            yellowFull.style.display = 'none';
+            redFull.style.display = 'block';
+        });
+    </script>
+</html>
